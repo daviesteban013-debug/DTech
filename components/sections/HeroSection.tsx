@@ -26,7 +26,7 @@ export function HeroSection() {
         >
           <span className="inline-block w-2 h-2 bg-[#FF3B47] shadow-[0_0_8px_#FF3B47]" />
           <p className="text-xs sm:text-sm font-normal text-[#9C9490] tracking-wide">
-            Con base en Bogotá, Colombia — desarrollo software y sistemas de trading algorítmico
+            Con base en Cucuta, Norte de Santander, Colombia — desarrollo software y sistemas de trading algorítmico
           </p>
         </motion.div>
 

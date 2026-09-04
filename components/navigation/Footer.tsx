@@ -20,11 +20,11 @@ export function Footer() {
           </div>
 
           <p className="text-sm leading-relaxed text-[#9C9490]">
-            Desarrollo de sistemas web, estrategias de trading algorítmico cuantitativo y experiencias de software en Bogotá, Colombia.
+            Desarrollo de sistemas web, estrategias de trading algorítmico cuantitativo y experiencias de software en Cucuta, Colombia.
           </p>
 
           <p className="text-xs text-[#68615D]">
-            Operando desde Bogotá, Colombia — zona horaria GMT-5
+            Operando desde Cucuta, Norte de Santander, Colombia — zona horaria GMT-5
           </p>
         </div>
 
