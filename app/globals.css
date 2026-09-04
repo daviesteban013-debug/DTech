@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #0A0808;
+  --color-bg-surface: #1A1614;
+  --color-bg-surface-elevated: #221D1A;
+  --color-accent-primary: #C81E3A;
+  --color-accent-bright: #FF3B47;
+  --color-text-primary: #F2EDE9;
+  --color-text-muted: #9C9490;
+  --color-text-subtle: #68615D;
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: #0A0808;
+  --foreground: #F2EDE9;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0A0808;
+  color: #F2EDE9;
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+  selection-background-color: #C81E3A;
+  selection-color: #F2EDE9;
+}
+
+::selection {
+  background-color: #C81E3A;
+  color: #F2EDE9;
+}
+
+/* Red rim lighting and directional illumination utilities */
+.rim-border {
+  position: relative;
+  border: 1px solid rgba(200, 30, 58, 0.16);
+  background: linear-gradient(135deg, rgba(26, 22, 20, 0.95) 0%, rgba(14, 11, 10, 0.98) 100%);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rim-border:hover {
+  border-color: rgba(255, 59, 71, 0.32);
+  box-shadow: 0 0 24px -6px rgba(200, 30, 58, 0.2);
+}
+
+.rim-border-active {
+  border: 1px solid rgba(255, 59, 71, 0.4);
+  box-shadow: 0 0 30px -4px rgba(200, 30, 58, 0.25);
+}
+
+/* Subtle corner red glow */
+.directional-corner-glow {
+  pointer-events: none;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(200, 30, 58, 0.08) 0%, rgba(10, 8, 8, 0) 70%);
+  filter: blur(40px);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #FF3B47;
+  outline-offset: 3px;
+}
+
+/* Custom scrollbar for dark cinematic aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #241D1B;
+  border-radius: 4px;
+  border: 1px solid rgba(200, 30, 58, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C81E3A;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
