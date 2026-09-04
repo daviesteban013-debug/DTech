@@ -22,7 +22,7 @@ export function AboutSection() {
               Enfoque operativo
             </h3>
             <p className="text-xs text-[#9C9490] leading-relaxed">
-              Resido en Bogotá, Colombia. Opero y construyo con una premisa única: cada regla debe ser explícita, medible y resistente a la volatilidad, tanto en el código de una aplicación como en la ejecución de un trade algorítmico.
+              Resido en Cucuta, Norte de Santander, Colombia. Opero y construyo con una premisa única: cada regla debe ser explícita, medible y resistente, tanto en el código de una aplicación como en la ejecución de un trade algorítmico.
             </p>
           </div>
         </div>
