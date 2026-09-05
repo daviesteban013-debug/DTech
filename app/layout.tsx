@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/navigation/Navbar";
+import { Footer } from "@/components/navigation/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -25,7 +27,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "David | Sistemas Web, Trading Algorítmico y Software",
   description:
-    "Portafolio de David, desarrollador full-stack y trader algorítmico en Bogotá, Colombia. Construyo sistemas deterministas: aplicaciones web de alto rendimiento, estrategias algorítmicas y videojuegos.",
+    "Portafolio de David, desarrollador full-stack y trader algorítmico en Cúcuta, Colombia. Construyo sistemas deterministas: aplicaciones web de alto rendimiento, estrategias algorítmicas y videojuegos.",
   keywords: [
     "David",
     "DTech",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     "MQL5",
     "Next.js",
     "Unity 6",
-    "Bogotá",
+    "Cúcuta",
     "Colombia",
   ],
   authors: [{ name: "David" }],
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     locale: "es_CO",
     title: "David | Sistemas Web, Trading Algorítmico y Software",
     description:
-      "Desarrollador full-stack y trader algorítmico en Bogotá, Colombia. Construyo sistemas que funcionan.",
+      "Desarrollador full-stack y trader algorítmico en Cúcuta, Colombia. Construyo sistemas que funcionan.",
     siteName: "DTech",
   },
   robots: {
@@ -65,7 +67,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} bg-[#0A0808] text-[#F2EDE9] antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-[#0A0808] text-[#F2EDE9] selection:bg-[#C81E3A] selection:text-[#F2EDE9]">
-        {children}
+        <Navbar />
+        <main className="flex-1 flex flex-col w-full">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

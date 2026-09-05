@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations/contact";
+import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Validate with Zod
+    // Validación estricta con Zod
     const validationResult = contactSchema.safeParse(body);
 
     if (!validationResult.success) {
@@ -20,22 +21,54 @@ export async function POST(request: Request) {
 
     const { name, email, projectType, message } = validationResult.data;
 
-    // Log the message for serverless visibility (ready to be plugged into Resend/Sendgrid)
-    console.log("[NUEVO MENSAJE DE CONTACTO DTECH]:", {
-      timestamp: new Date().toISOString(),
-      name,
-      email,
-      projectType,
-      message,
-    });
+    const supabase = getSupabaseServerClient();
+    let messageId: string | null = null;
 
-    // Simulated latency for smooth UI state transition
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    if (supabase) {
+      // Inserción server-side en tabla contact_messages de Supabase
+      const { data, error } = await supabase
+        .from("contact_messages")
+        .insert({
+          name,
+          email,
+          project_type: projectType,
+          message,
+        })
+        .select("id")
+        .single();
+
+      if (error) {
+        console.error("[SUPABASE CONTACT ERROR]:", error);
+        return NextResponse.json(
+          {
+            success: false,
+            message: "No fue posible registrar tu mensaje en la base de datos.",
+          },
+          { status: 500 }
+        );
+      }
+
+      messageId = data?.id || null;
+      console.log("[SUPABASE CONTACT SUCCESS]: Mensaje insertado con ID:", messageId);
+    } else {
+      // Registro en log de servidor para desarrollo cuando no hay credenciales configuradas
+      messageId = "local-" + Math.random().toString(36).substring(2, 9);
+      console.log("[CONTACTO DEV REGISTRADO]:", {
+        id: messageId,
+        timestamp: new Date().toISOString(),
+        name,
+        email,
+        projectType,
+        message,
+        note: "Configura NEXT_PUBLIC_SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY en .env.local para inserción remota en Supabase.",
+      });
+    }
 
     return NextResponse.json(
       {
         success: true,
-        message: "Tu mensaje ha sido recibido con éxito.",
+        message: "Tu mensaje ha sido recibido y registrado con éxito.",
+        messageId,
       },
       { status: 200 }
     );

@@ -3,68 +3,85 @@
 import React from "react";
 import { processSteps } from "@/content/process";
 import { SectionContainer } from "@/components/common/SectionContainer";
+import { SectionHeader } from "@/components/common/SectionHeader";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export function ProcessSection() {
   return (
-    <SectionContainer id="como-lo-hago" glowPosition="bottom-right">
-      <div className="space-y-12">
-        {/* Section Header */}
-        <div className="max-w-2xl">
-          <span className="text-xs font-medium text-[#FF3B47] uppercase tracking-wider block">
-            Metodología de ingeniería
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9] mt-2">
-            Cómo lo hago
-          </h2>
-          <p className="mt-4 text-base text-[#9C9490] leading-relaxed">
-            Inspirado en la precisión de Smart Money Concepts: análisis riguroso del contexto y las reglas antes de ejecutar cualquier cambio en el sistema.
-          </p>
-        </div>
+    <SectionContainer id="como-lo-hago" variant="surface" glowPosition="bottom-right">
+      <div className="space-y-16">
+        {/* Encabezado de Capítulo */}
+        <SectionHeader
+          chapterNumber="03"
+          eyebrow="METODOLOGÍA DE INGENIERÍA"
+          title="Cómo lo hago"
+          description="Inspirado en la precisión de Smart Money Concepts: análisis riguroso de reglas y estructura de mercado antes de ejecutar cualquier cambio en el sistema."
+        />
 
-        {/* Sequential Step Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+        {/* Línea de tiempo visual conectada verticalmente */}
+        <div className="relative pl-6 sm:pl-10 md:pl-12 border-l-2 border-[#C81E3A]/40 space-y-12 ml-2 sm:ml-6">
           {processSteps.map((step, idx) => (
-            <div
-              key={step.id}
-              className="p-8 rim-border rounded-sm bg-[#14100F] flex flex-col justify-between space-y-6 relative group hover:border-[#FF3B47]/40 transition-all duration-300"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-xs font-mono font-medium text-[#FF3B47] bg-[#C81E3A]/15 px-3 py-1 rounded-none border border-[#FF3B47]/30">
-                    {step.stageName}
-                  </span>
+            <div key={step.id} className="relative group">
+              {/* Nodo luminoso en el riel de la línea de tiempo */}
+              <div className="absolute -left-[31px] sm:-left-[47px] md:-left-[55px] top-6 w-5 h-5 rounded-full bg-[#120E0D] border-2 border-[#FF3B47] flex items-center justify-center shadow-[0_0_12px_#FF3B47] z-10">
+                <div className="w-1.5 h-1.5 bg-[#FF3B47] rounded-full group-hover:scale-125 transition-transform" />
+              </div>
+
+              {/* Tarjeta de Fase */}
+              <div className="p-7 sm:p-9 lg:p-10 rim-border rounded-sm bg-[#120E0D] flex flex-col justify-between space-y-7 hover:border-[#FF3B47]/40 transition-all duration-300">
+                {/* Header de Fase */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#221817] pb-5">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-bold text-[#FF3B47] bg-[#C81E3A]/20 px-3 py-1 border border-[#FF3B47]/35 tracking-widest uppercase">
+                      FASE 0{idx + 1} //
+                    </span>
+                    <span className="text-xs font-mono text-[#9C9490] uppercase tracking-wider">
+                      {step.stageName.split("—")[1]?.trim() || step.stageName}
+                    </span>
+                  </div>
+
                   <span className="text-xs font-mono text-[#68615D]">
-                    Paso {idx + 1} de 4
+                    Estación {idx + 1} de 4
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+                {/* Título de la Fase */}
+                <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
                   {step.headline}
                 </h3>
 
-                <p className="mt-3 text-sm text-[#9C9490] leading-relaxed">
-                  {step.description}
-                </p>
-
-                {/* Mindset Quote Block */}
-                <div className="mt-5 p-3.5 bg-[#0E0B0A] border-l border-[#C81E3A] text-xs text-[#F2EDE9]/90 italic font-mono">
+                {/* Cita de mentalidad operativa destacada */}
+                <div className="p-4 bg-[#0A0808] border-l-2 border-[#FF3B47] text-sm font-mono text-[#F2EDE9] italic leading-relaxed">
                   &ldquo;{step.mindsetNote}&rdquo;
                 </div>
-              </div>
 
-              {/* Outputs block */}
-              <div className="pt-4 border-t border-[#1C1615]">
-                <h4 className="text-xs font-medium text-[#9C9490] mb-2 font-[family-name:var(--font-space-grotesk)] uppercase tracking-wider">
-                  Resultados verificables
-                </h4>
-                <ul className="space-y-1.5 text-xs text-[#F2EDE9]">
-                  {step.outputs.map((out, oIdx) => (
-                    <li key={oIdx} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#FF3B47] rounded-none shrink-0" />
-                      <span>{out}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Matriz técnica de dos columnas: Enfoque vs Entregables verificables */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
+                  {/* Columna 1: Enfoque de ejecución */}
+                  <div className="lg:col-span-7 space-y-2">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#9C9490] block">
+                      Enfoque de ejecución
+                    </span>
+                    <p className="text-sm sm:text-base text-[#9C9490] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Columna 2: Entregables verificables */}
+                  <div className="lg:col-span-5 p-5 bg-[#0E0B0A] border border-[#221817] rounded-sm space-y-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#FF3B47] block font-semibold">
+                      Entregables verificables
+                    </span>
+                    <ul className="space-y-2 text-xs sm:text-sm text-[#F2EDE9]">
+                      {step.outputs.map((out, oIdx) => (
+                        <li key={oIdx} className="flex items-start gap-2.5">
+                          <CheckCircle2 size={16} className="text-[#00E676] shrink-0 mt-0.5" />
+                          <span>{out}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

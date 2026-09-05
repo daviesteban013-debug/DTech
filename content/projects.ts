@@ -12,6 +12,7 @@ export interface ProjectDossier {
     value: string;
   }[];
   stack: string[];
+  images: string[];
 }
 
 export const projectsData: ProjectDossier[] = [
@@ -44,6 +45,7 @@ export const projectsData: ProjectDossier[] = [
       "TypeScript",
       "Tailwind CSS",
     ],
+    images: ["/projects/ecommerce-preview.svg"],
   },
   {
     id: "kz-ob-trading-algoritmico",
@@ -74,6 +76,7 @@ export const projectsData: ProjectDossier[] = [
       "Pepperstone MT5",
       "ICT / Smart Money Concepts",
     ],
+    images: ["/projects/trading-preview.svg"],
   },
   {
     id: "threat-matrix-videojuego",
@@ -104,5 +107,6 @@ export const projectsData: ProjectDossier[] = [
       "Object Pooling Architecture",
       "Custom Post-Processing",
     ],
+    images: ["/projects/threat-matrix-preview.svg"],
   },
 ];

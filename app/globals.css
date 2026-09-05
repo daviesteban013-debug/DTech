@@ -2,8 +2,8 @@
 
 @theme {
   --color-bg-base: #0A0808;
-  --color-bg-surface: #1A1614;
-  --color-bg-surface-elevated: #221D1A;
+  --color-bg-surface: #1B1614;
+  --color-bg-surface-elevated: #241D1A;
   --color-accent-primary: #C81E3A;
   --color-accent-bright: #FF3B47;
   --color-text-primary: #F2EDE9;
@@ -28,7 +28,8 @@ body {
   background-color: #0A0808;
   color: #F2EDE9;
   font-family: var(--font-inter), sans-serif;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.7;
   overflow-x: hidden;
   selection-background-color: #C81E3A;
   selection-color: #F2EDE9;
@@ -39,33 +40,49 @@ body {
   color: #F2EDE9;
 }
 
+/* Film grain texture overlay simulating dark photographic studio paper */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* Glowing chapter rim light divider for independent sections */
+.rim-light-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(200, 30, 58, 0.4) 15%, rgba(255, 59, 71, 0.95) 50%, rgba(200, 30, 58, 0.4) 85%, transparent 100%);
+  box-shadow: 0 0 15px rgba(255, 59, 71, 0.55), 0 -1px 8px rgba(200, 30, 58, 0.4);
+}
+
 /* Red rim lighting and directional illumination utilities */
 .rim-border {
   position: relative;
-  border: 1px solid rgba(200, 30, 58, 0.16);
-  background: linear-gradient(135deg, rgba(26, 22, 20, 0.95) 0%, rgba(14, 11, 10, 0.98) 100%);
+  border: 1px solid rgba(200, 30, 58, 0.18);
+  background: linear-gradient(135deg, rgba(27, 22, 20, 0.95) 0%, rgba(16, 12, 11, 0.98) 100%);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rim-border:hover {
-  border-color: rgba(255, 59, 71, 0.32);
-  box-shadow: 0 0 24px -6px rgba(200, 30, 58, 0.2);
+  border-color: rgba(255, 59, 71, 0.36);
+  box-shadow: 0 0 28px -6px rgba(200, 30, 58, 0.25);
 }
 
 .rim-border-active {
-  border: 1px solid rgba(255, 59, 71, 0.4);
-  box-shadow: 0 0 30px -4px rgba(200, 30, 58, 0.25);
+  border: 1px solid rgba(255, 59, 71, 0.45);
+  box-shadow: 0 0 32px -4px rgba(200, 30, 58, 0.3);
 }
 
 /* Subtle corner red glow */
 .directional-corner-glow {
   pointer-events: none;
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(200, 30, 58, 0.08) 0%, rgba(10, 8, 8, 0) 70%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(200, 30, 58, 0.12) 0%, rgba(10, 8, 8, 0) 70%);
+  filter: blur(45px);
 }
 
 /* Focus styles for accessibility */
@@ -84,9 +101,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #241D1B;
+  background: #281F1D;
   border-radius: 4px;
-  border: 1px solid rgba(200, 30, 58, 0.15);
+  border: 1px solid rgba(200, 30, 58, 0.18);
 }
 
 ::-webkit-scrollbar-thumb:hover {

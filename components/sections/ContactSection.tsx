@@ -9,6 +9,7 @@ import {
   projectTypes,
 } from "@/lib/validations/contact";
 import { SectionContainer } from "@/components/common/SectionContainer";
+import { SectionHeader } from "@/components/common/SectionHeader";
 import { Button } from "@/components/common/Button";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -66,46 +67,41 @@ export function ContactSection() {
   };
 
   return (
-    <SectionContainer id="contacto" glowPosition="top-left">
+    <SectionContainer id="contacto" variant="base" glowPosition="top-left">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Direct Invitation & Info */}
-        <div className="lg:col-span-5 space-y-6">
-          <span className="text-xs font-medium text-[#FF3B47] uppercase tracking-wider block">
-            Contacto directo
-          </span>
+        <div className="lg:col-span-5 space-y-8">
+          <SectionHeader
+            chapterNumber="06"
+            eyebrow="CANAL DIRECTO"
+            title="Cuéntame qué necesitas"
+            description="Ya sea una aplicación web completa, la automatización de una estrategia cuantitativa en Pine Script/MQL5 o una consulta de arquitectura técnica, conversemos directamente sobre los requerimientos."
+          />
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9] leading-tight">
-            Cuéntame qué necesitas
-          </h2>
-
-          <p className="text-base text-[#9C9490] leading-relaxed">
-            Ya sea una aplicación web completa, la automatización de una estrategia cuantitativa en Pine Script/MQL5 o una consulta de arquitectura técnica, conversemos directamente sobre los requerimientos.
-          </p>
-
-          <div className="p-6 rim-border rounded-sm bg-[#14100F] space-y-4 text-xs">
+          <div className="p-7 rim-border rounded-sm bg-[#120E0D] space-y-5 text-sm">
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono">
+              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
                 Ubicación
               </span>
-              <span className="text-[#F2EDE9] font-medium text-sm">
-                Bogotá, Colombia (Zona horaria GMT-5)
+              <span className="text-[#F2EDE9] font-medium text-base">
+                Cúcuta, Norte de Santander, Colombia (GMT-5)
               </span>
             </div>
 
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono">
+              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
                 Tiempo de respuesta
               </span>
-              <span className="text-[#F2EDE9] font-medium text-sm">
+              <span className="text-[#F2EDE9] font-medium text-base">
                 Normalmente respondo en menos de 24 horas hábiles
               </span>
             </div>
 
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono">
+              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
                 Disponibilidad
               </span>
-              <span className="text-[#FF3B47] font-medium text-sm">
+              <span className="text-[#FF3B47] font-medium text-base">
                 Abierto a proyectos de software y consultoría algorítmica
               </span>
             </div>
