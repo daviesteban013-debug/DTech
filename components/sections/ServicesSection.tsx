@@ -103,22 +103,22 @@ export function ServicesSection() {
             return (
               <div
                 key={disc.id}
-                className="rim-border rounded-sm bg-[#120E0D] hover:bg-[#161110] hover:border-[#FF3B47]/45 transition-all duration-300 p-8 sm:p-10 lg:p-12 flex flex-col justify-between group relative overflow-hidden space-y-8"
+                className="rim-border rounded-sm bg-[var(--bg-surface-card)] hover:bg-[var(--bg-surface-card-hover)] hover:border-[#FF3B47]/45 transition-all duration-300 p-8 sm:p-10 lg:p-12 flex flex-col justify-between group relative overflow-hidden space-y-8"
               >
                 {/* Cabecera y Contenido Principal */}
                 <div className="space-y-6">
                   {/* Número y Categoría */}
-                  <span className="text-xs font-mono text-[#9C9490] tracking-widest block uppercase">
+                  <span className="text-xs font-mono text-[var(--text-muted)] tracking-widest block uppercase">
                     {disc.number}
                   </span>
 
                   {/* Ícono Geométrico con Glow */}
-                  <div className="w-14 h-14 rounded-sm bg-[#1A1413] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_20px_rgba(200,30,58,0.2)] group-hover:border-[#FF3B47]/70 group-hover:scale-105 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-sm bg-[var(--bg-surface-card-inner)] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_20px_rgba(200,30,58,0.2)] group-hover:border-[#FF3B47]/70 group-hover:scale-105 transition-all duration-300">
                     <IconComponent size={28} />
                   </div>
 
                   {/* Título Display */}
-                  <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9] leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)] leading-tight">
                     {disc.title}
                   </h3>
 
@@ -128,20 +128,20 @@ export function ServicesSection() {
                   </p>
 
                   {/* Descripción breve (1-2 líneas) */}
-                  <p className="text-sm text-[#9C9490] leading-relaxed">
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">
                     {disc.description}
                   </p>
 
                   {/* Pilares / Specs Técnicas con aire */}
-                  <div className="space-y-4 pt-6 border-t border-[#221817]">
+                  <div className="space-y-4 pt-6 border-t border-[var(--border-subtle)]">
                     {disc.highlights.map((h, hIdx) => (
                       <div key={hIdx} className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 bg-[#FF3B47] mt-1.5 shrink-0" />
                         <div className="space-y-0.5">
-                          <span className="text-xs font-mono font-bold text-[#F2EDE9] block uppercase tracking-wider">
+                          <span className="text-xs font-mono font-bold text-[var(--text-primary)] block uppercase tracking-wider">
                             {h.title}
                           </span>
-                          <p className="text-xs text-[#9C9490] leading-normal">
+                          <p className="text-xs text-[var(--text-muted)] leading-normal">
                             {h.detail}
                           </p>
                         </div>
@@ -151,7 +151,7 @@ export function ServicesSection() {
                 </div>
 
                 {/* Footer de Tarjeta con Tags y Métrica */}
-                <div className="pt-6 border-t border-[#221817] space-y-5 mt-auto">
+                <div className="pt-6 border-t border-[var(--border-subtle)] space-y-5 mt-auto">
                   <div className="flex flex-wrap gap-2">
                     {disc.tags.map((tag) => (
                       <Badge key={tag} variant="default" className="text-xs px-2.5 py-1">
@@ -160,7 +160,7 @@ export function ServicesSection() {
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs font-mono pt-1 text-[#68615D]">
+                  <div className="flex items-center justify-between text-xs font-mono pt-1 text-[var(--text-subtle)]">
                     <span>{disc.metric.label}</span>
                     <span className="text-[#00E676] font-semibold">{disc.metric.value}</span>
                   </div>

@@ -30,17 +30,17 @@ export function SectionContainer({
     none: "hidden",
   };
 
-  // Distinctly separated background palettes: deep black (#0A0808) vs rich studio charcoal gradient
+  // Fondos basados en tokens CSS dinámicos
   const bgStyles = {
-    base: "bg-[#0A0808]",
-    surface: "bg-gradient-to-b from-[#1C1715] via-[#161211] to-[#120E0D]",
+    base: "bg-[var(--bg-base)]",
+    surface: "bg-gradient-to-b from-[var(--bg-surface-elevated)] via-[var(--bg-surface)] to-[var(--bg-surface-card)]",
   };
 
   return (
     <section
       id={id}
       className={cn(
-        "relative w-full overflow-hidden scroll-mt-20 md:scroll-mt-24 py-32 sm:py-36 lg:py-40 border-t border-[#261D1B]",
+        "relative w-full overflow-hidden scroll-mt-20 md:scroll-mt-24 py-32 sm:py-36 lg:py-40 border-t border-[var(--border-elevated)] transition-colors duration-300",
         bgStyles[variant],
         className
       )}
@@ -65,12 +65,12 @@ export function SectionContainer({
         </>
       )}
 
-      {/* Directional red ambient illumination from edge/corner */}
+      {/* Directional red ambient illumination from edge/corner adaptada al tema */}
       {glowPosition !== "none" && (
         <div
           aria-hidden="true"
           className={cn(
-            "directional-corner-glow absolute z-0 pointer-events-none opacity-45",
+            "directional-corner-glow absolute z-0 pointer-events-none",
             glowStyles[glowPosition]
           )}
         />
@@ -91,3 +91,4 @@ export function SectionContainer({
     </section>
   );
 }
+

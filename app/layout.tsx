@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
 
@@ -26,7 +27,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0808",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0A0808" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -71,15 +75,24 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} bg-[#0A0808] text-[#F2EDE9] antialiased`}
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-[#0A0808] text-[#F2EDE9] selection:bg-[#C81E3A] selection:text-[#F2EDE9]">
-        <Navbar />
-        <main className="flex-1 flex flex-col w-full">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <Navbar />
+          <main className="flex-1 flex flex-col w-full">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+

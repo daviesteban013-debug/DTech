@@ -34,19 +34,19 @@ export function SectionHeader({
         <span className="hidden sm:inline-block w-8 h-[1px] bg-[#C81E3A]/40" />
 
         {/* Eyebrow descriptor in tracking-wide small caps */}
-        <span className="text-xs font-mono font-medium text-[#9C9490] uppercase tracking-widest">
+        <span className="text-xs font-mono font-medium text-[var(--text-muted)] uppercase tracking-widest">
           {eyebrow}
         </span>
       </div>
 
       {/* Monumental Chapter Title in Space Grotesk */}
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9] tracking-tight leading-[1.12]">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)] tracking-tight leading-[1.12]">
         {title}
       </h2>
 
       {/* Clear, authoritative subtitle descriptor */}
       {description && (
-        <p className="text-base sm:text-lg lg:text-xl text-[#9C9490] leading-relaxed font-normal pt-1 max-w-3xl">
+        <p className="text-base sm:text-lg lg:text-xl text-[var(--text-muted)] leading-relaxed font-normal pt-1 max-w-3xl">
           {description}
         </p>
       )}

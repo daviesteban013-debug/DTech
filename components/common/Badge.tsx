@@ -14,13 +14,13 @@ export function Badge({
 }: BadgeProps) {
   const variantStyles = {
     default:
-      "bg-[#1A1614] text-[#F2EDE9] border border-[#C81E3A]/25 shadow-[0_0_10px_rgba(200,30,58,0.08)]",
+      "bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] border border-[#C81E3A]/25 shadow-sm",
     accent:
       "bg-[#C81E3A]/15 text-[#FF3B47] border border-[#FF3B47]/35 shadow-[0_0_12px_rgba(255,59,71,0.15)]",
     muted:
-      "bg-[#14100F] text-[#9C9490] border border-[#2A2220]",
+      "bg-[var(--bg-surface-card-inner)] text-[var(--text-muted)] border border-[var(--border-subtle)]",
     outline:
-      "bg-transparent text-[#9C9490] border border-[#C81E3A]/20 hover:border-[#C81E3A]/40",
+      "bg-transparent text-[var(--text-muted)] border border-[#C81E3A]/20 hover:border-[#C81E3A]/40",
   };
 
   return (

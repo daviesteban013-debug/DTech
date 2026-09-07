@@ -1,49 +1,169 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Tokens Modo Oscuro por defecto */
+  --bg-base: #0A0808;
+  --bg-surface: #14100F;
+  --bg-surface-elevated: #1B1614;
+  --bg-surface-card: #120E0D;
+  --bg-surface-card-hover: #161110;
+  --bg-surface-card-inner: #0E0B0A;
+
+  --text-primary: #F2EDE9;
+  --text-muted: #9C9490;
+  --text-subtle: #68615D;
+
+  --border-base: #1C1615;
+  --border-subtle: #221817;
+  --border-elevated: #261D1B;
+  --border-rim: rgba(200, 30, 58, 0.22);
+  --border-hover: rgba(255, 59, 71, 0.45);
+
+  --navbar-bg: rgba(10, 8, 8, 0.75);
+  --navbar-bg-scrolled: rgba(10, 8, 8, 0.92);
+  --navbar-shadow: 0 10px 35px rgba(0, 0, 0, 0.85);
+
+  --card-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+  --noise-opacity: 0.045;
+  --corner-glow-opacity: 0.45;
+  --directional-light-opacity: 1;
+  --rim-divider-opacity: 0.95;
+
+  --rim-border-bg: linear-gradient(135deg, rgba(27, 22, 20, 0.95) 0%, rgba(16, 12, 11, 0.98) 100%);
+  --scrollbar-thumb: #281F1D;
+}
+
+html.light, [data-theme="light"] {
+  /* Tokens Modo Claro: Fondo blanco limpio, texto en tono oscuro casi negro (#1A1614), acentos rojos */
+  --bg-base: #FFFFFF;
+  --bg-surface: #F8F5F2;
+  --bg-surface-elevated: #EFEBE7;
+  --bg-surface-card: #FFFFFF;
+  --bg-surface-card-hover: #FCFAF8;
+  --bg-surface-card-inner: #F6F2EE;
+
+  --text-primary: #1A1614; /* Tono de superficie oscuro de la paleta */
+  --text-muted: #5C544F;   /* Gris cálido de alto contraste */
+  --text-subtle: #8A807A;
+
+  --border-base: #E8E2DD;
+  --border-subtle: #DFD7D1;
+  --border-elevated: #D2C8C1;
+  --border-rim: rgba(200, 30, 58, 0.2);
+  --border-hover: rgba(200, 30, 58, 0.55);
+
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-bg-scrolled: rgba(255, 255, 255, 0.96);
+  --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --noise-opacity: 0;             /* Grano fotográfico retirado en modo claro */
+  --corner-glow-opacity: 0.04;    /* Glow ambiental reducido en blanco */
+  --directional-light-opacity: 0.06; /* Haz de luz hero atenuado sobre blanco */
+  --rim-divider-opacity: 0.45;
+
+  --rim-border-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 242, 0.98) 100%);
+  --scrollbar-thumb: #D4CBC4;
+}
+
+html.dark, [data-theme="dark"] {
+  /* Confirmación explícita para clase dark */
+  --bg-base: #0A0808;
+  --bg-surface: #14100F;
+  --bg-surface-elevated: #1B1614;
+  --bg-surface-card: #120E0D;
+  --bg-surface-card-hover: #161110;
+  --bg-surface-card-inner: #0E0B0A;
+
+  --text-primary: #F2EDE9;
+  --text-muted: #9C9490;
+  --text-subtle: #68615D;
+
+  --border-base: #1C1615;
+  --border-subtle: #221817;
+  --border-elevated: #261D1B;
+  --border-rim: rgba(200, 30, 58, 0.22);
+  --border-hover: rgba(255, 59, 71, 0.45);
+
+  --navbar-bg: rgba(10, 8, 8, 0.75);
+  --navbar-bg-scrolled: rgba(10, 8, 8, 0.92);
+  --navbar-shadow: 0 10px 35px rgba(0, 0, 0, 0.85);
+
+  --card-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+  --noise-opacity: 0.045;
+  --corner-glow-opacity: 0.45;
+  --directional-light-opacity: 1;
+  --rim-divider-opacity: 0.95;
+
+  --rim-border-bg: linear-gradient(135deg, rgba(27, 22, 20, 0.95) 0%, rgba(16, 12, 11, 0.98) 100%);
+  --scrollbar-thumb: #281F1D;
+}
+
 @theme {
-  --color-bg-base: #0A0808;
-  --color-bg-surface: #1B1614;
-  --color-bg-surface-elevated: #241D1A;
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-elevated: var(--bg-surface-elevated);
+  --color-bg-card: var(--bg-surface-card);
+  --color-bg-card-hover: var(--bg-surface-card-hover);
+  --color-bg-card-inner: var(--bg-surface-card-inner);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-border-base: var(--border-base);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-elevated: var(--border-elevated);
+
   --color-accent-primary: #C81E3A;
   --color-accent-bright: #FF3B47;
-  --color-text-primary: #F2EDE9;
-  --color-text-muted: #9C9490;
-  --color-text-subtle: #68615D;
 
   --font-display: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-:root {
-  --background: #0A0808;
-  --foreground: #F2EDE9;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+html.dark {
   color-scheme: dark;
 }
 
+html.light {
+  color-scheme: light;
+}
+
 body {
-  background-color: #0A0808;
-  color: #F2EDE9;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
   font-family: var(--font-inter), sans-serif;
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
   selection-background-color: #C81E3A;
-  selection-color: #F2EDE9;
+  selection-color: #FFFFFF;
+}
+
+/* Transición suave de colores al alternar de tema */
+body, header, section, article, div, nav, a, button, span, p, h1, h2, h3, h4, h5, h6, input, textarea {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ::selection {
   background-color: #C81E3A;
-  color: #F2EDE9;
+  color: #FFFFFF;
 }
 
-/* Film grain texture overlay simulating dark photographic studio paper */
+/* Film grain texture overlay simulando papel oscuro en dark mode */
 .noise-overlay {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
 }
 
 /* Glowing chapter rim light divider for independent sections */
@@ -53,20 +173,21 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(200, 30, 58, 0.4) 15%, rgba(255, 59, 71, 0.95) 50%, rgba(200, 30, 58, 0.4) 85%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(200, 30, 58, 0.4) 15%, rgba(255, 59, 71, var(--rim-divider-opacity)) 50%, rgba(200, 30, 58, 0.4) 85%, transparent 100%);
   box-shadow: 0 0 15px rgba(255, 59, 71, 0.55), 0 -1px 8px rgba(200, 30, 58, 0.4);
 }
 
 /* Red rim lighting and directional illumination utilities */
 .rim-border {
   position: relative;
-  border: 1px solid rgba(200, 30, 58, 0.18);
-  background: linear-gradient(135deg, rgba(27, 22, 20, 0.95) 0%, rgba(16, 12, 11, 0.98) 100%);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-rim);
+  background: var(--rim-border-bg);
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .rim-border:hover {
-  border-color: rgba(255, 59, 71, 0.36);
+  border-color: var(--border-hover);
   box-shadow: 0 0 28px -6px rgba(200, 30, 58, 0.25);
 }
 
@@ -75,15 +196,16 @@ body {
   box-shadow: 0 0 32px -4px rgba(200, 30, 58, 0.3);
 }
 
-/* Subtle corner red glow */
+/* Corner red glow adaptado a la opacidad del tema */
 .directional-corner-glow {
   pointer-events: none;
   position: absolute;
   width: 550px;
   height: 550px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(200, 30, 58, 0.12) 0%, rgba(10, 8, 8, 0) 70%);
+  background: radial-gradient(circle, rgba(200, 30, 58, 0.14) 0%, rgba(10, 8, 8, 0) 70%);
   filter: blur(45px);
+  opacity: var(--corner-glow-opacity);
 }
 
 /* Focus styles for accessibility */
@@ -92,19 +214,19 @@ body {
   outline-offset: 3px;
 }
 
-/* Custom scrollbar for dark cinematic aesthetic */
+/* Custom scrollbar adaptado al tema */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0808;
+  background: var(--bg-base);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #281F1D;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
-  border: 1px solid rgba(200, 30, 58, 0.18);
+  border: 1px solid var(--border-rim);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -125,3 +247,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

@@ -35,11 +35,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-[#C81E3A] hover:bg-[#FF3B47] text-[#F2EDE9] shadow-[0_0_20px_rgba(200,30,58,0.25)] hover:shadow-[0_0_28px_rgba(255,59,71,0.4)] border border-[#FF3B47]/30 active:scale-[0.98]",
+        "bg-[#C81E3A] hover:bg-[#FF3B47] text-white shadow-[0_0_20px_rgba(200,30,58,0.25)] hover:shadow-[0_0_28px_rgba(255,59,71,0.4)] border border-[#FF3B47]/30 active:scale-[0.98]",
       secondary:
-        "bg-[#1A1614] hover:bg-[#241E1C] text-[#F2EDE9] border border-[#C81E3A]/30 hover:border-[#FF3B47]/60 shadow-[0_0_15px_rgba(200,30,58,0.1)] active:scale-[0.98]",
+        "bg-[var(--bg-surface-elevated)] hover:bg-[var(--bg-surface-card-hover)] text-[var(--text-primary)] border border-[#C81E3A]/30 hover:border-[#FF3B47]/60 shadow-sm active:scale-[0.98]",
       ghost:
-        "bg-transparent hover:bg-[#1A1614] text-[#9C9490] hover:text-[#F2EDE9] border border-transparent hover:border-[#C81E3A]/20 active:scale-[0.98]",
+        "bg-transparent hover:bg-[var(--bg-surface-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent hover:border-[#C81E3A]/20 active:scale-[0.98]",
     };
 
     const combinedClassName = cn(

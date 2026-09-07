@@ -33,7 +33,7 @@ export function WindowChrome({
   return (
     <div
       className={cn(
-        "w-full rounded-md border border-[#C81E3A]/25 bg-[#14100F] shadow-[0_16px_45px_rgba(0,0,0,0.85),0_0_24px_rgba(200,30,58,0.14)] overflow-hidden transition-all duration-300 hover:border-[#FF3B47]/45 group/chrome",
+        "w-full rounded-md border border-[#C81E3A]/25 bg-[#14100F] shadow-[var(--card-shadow)] overflow-hidden transition-all duration-300 hover:border-[#FF3B47]/45 group/chrome",
         className
       )}
     >

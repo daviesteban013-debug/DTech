@@ -9,8 +9,8 @@ import { Layers, Terminal, Cpu, Zap, Code2 } from "lucide-react";
 export function TechStackSection() {
   const levelBadgeStyles = {
     "Core diario": "border-[#FF3B47]/40 text-[#FF3B47] bg-[#C81E3A]/15",
-    Especializado: "border-[#C81E3A]/30 text-[#F2EDE9] bg-[#1A1614]",
-    "Herramienta avanzada": "border-[#68615D]/40 text-[#9C9490] bg-[#120E0D]",
+    Especializado: "border-[#C81E3A]/30 text-[var(--text-primary)] bg-[var(--bg-surface-card-inner)]",
+    "Herramienta avanzada": "border-[var(--border-subtle)] text-[var(--text-muted)] bg-[var(--bg-surface-card)]",
   };
 
   // Glyph map for square icon placeholders (48x48px)
@@ -53,16 +53,16 @@ export function TechStackSection() {
           {techStackData.map((group, gIdx) => (
             <div
               key={gIdx}
-              className="p-8 sm:p-10 lg:p-12 rim-border rounded-sm bg-[#120E0D] hover:border-[#FF3B47]/35 transition-all duration-300 flex flex-col justify-between space-y-8"
+              className="p-8 sm:p-10 lg:p-12 rim-border rounded-sm bg-[var(--bg-surface-card)] hover:border-[#FF3B47]/35 transition-all duration-300 flex flex-col justify-between space-y-8"
             >
               <div>
                 {/* Cabecera del Dominio */}
-                <div className="flex items-center justify-between border-b border-[#221817] pb-5 mb-6">
+                <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-5 mb-6">
                   <div>
-                    <span className="text-xs font-mono text-[#9C9490] tracking-widest uppercase block mb-1">
+                    <span className="text-xs font-mono text-[var(--text-muted)] tracking-widest uppercase block mb-1">
                       0{gIdx + 1} // DOMINIO TÉCNICO
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+                    <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
                       {group.domain}
                     </h3>
                   </div>
@@ -72,7 +72,7 @@ export function TechStackSection() {
                 </div>
 
                 {/* Descripción de 1 línea con aire */}
-                <p className="text-sm text-[#9C9490] leading-relaxed mb-8">
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-8">
                   {group.focus}
                 </p>
 
@@ -81,11 +81,11 @@ export function TechStackSection() {
                   {group.items.map((item, iIdx) => (
                     <div
                       key={iIdx}
-                      className="p-4 sm:p-4.5 bg-[#0A0808] border border-[#1E1716] rounded-sm flex items-center justify-between gap-4 hover:border-[#FF3B47]/45 hover:bg-[#110D0C] transition-all group"
+                      className="p-4 sm:p-4.5 bg-[var(--bg-surface-card-inner)] border border-[var(--border-subtle)] rounded-sm flex items-center justify-between gap-4 hover:border-[#FF3B47]/45 hover:bg-[var(--bg-surface-card)] transition-all group"
                     >
                       <div className="flex items-center gap-4 min-w-0">
                         {/* Placeholder cuadrado de ícono reservado (48x48px) */}
-                        <div className="w-12 h-12 rounded-sm bg-[#161110] border border-[#C81E3A]/35 flex items-center justify-center shrink-0 group-hover:border-[#FF3B47]/70 group-hover:bg-[#1F1413] transition-all shadow-[0_0_12px_rgba(200,30,58,0.15)] relative">
+                        <div className="w-12 h-12 rounded-sm bg-[var(--bg-surface-card)] border border-[#C81E3A]/35 flex items-center justify-center shrink-0 group-hover:border-[#FF3B47]/70 transition-all shadow-[0_0_12px_rgba(200,30,58,0.15)] relative">
                           <span className="font-mono text-sm font-bold text-[#FF3B47] tracking-wider">
                             {getTechGlyph(item.name)}
                           </span>
@@ -96,11 +96,11 @@ export function TechStackSection() {
                         {/* Nombre y detalle descriptivo (1 línea) */}
                         <div className="space-y-0.5 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-base font-bold text-[#F2EDE9] truncate">
+                            <span className="font-mono text-base font-bold text-[var(--text-primary)] truncate">
                               {item.name}
                             </span>
                           </div>
-                          <p className="text-xs sm:text-sm text-[#9C9490] line-clamp-1">
+                          <p className="text-xs sm:text-sm text-[var(--text-muted)] line-clamp-1">
                             {item.detail}
                           </p>
                         </div>
@@ -120,9 +120,9 @@ export function TechStackSection() {
               </div>
 
               {/* Indicador inferior de dominio con aire */}
-              <div className="pt-6 border-t border-[#1C1615] flex items-center justify-between text-xs font-mono text-[#68615D] mt-8">
+              <div className="pt-6 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-subtle)] mt-8">
                 <span>ESTÁNDAR: CÓDIGO DETERMINISTA</span>
-                <span className="text-[#9C9490]">REGLAS ESTRICTAS</span>
+                <span className="text-[var(--text-muted)]">REGLAS ESTRICTAS</span>
               </div>
             </div>
           ))}

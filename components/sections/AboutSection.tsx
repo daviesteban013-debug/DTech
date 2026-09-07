@@ -62,8 +62,8 @@ export function AboutSection() {
             />
 
             {/* Statement corto y grande */}
-            <div className="p-7 sm:p-8 bg-[#120E0D] border-l-4 border-[#FF3B47] rounded-sm rim-border space-y-4">
-              <p className="text-xl sm:text-2xl lg:text-3xl text-[#F2EDE9] font-medium leading-[1.28] font-[family-name:var(--font-space-grotesk)]">
+            <div className="p-7 sm:p-8 bg-[var(--bg-surface-card)] border-l-4 border-[#FF3B47] rounded-sm rim-border space-y-4">
+              <p className="text-xl sm:text-2xl lg:text-3xl text-[var(--text-primary)] font-medium leading-[1.28] font-[family-name:var(--font-space-grotesk)]">
                 &ldquo;La intuición no escala en los mercados ni en el software: construyo sistemas donde cada regla es explícita, medible y resistente ante cualquier anomalía.&rdquo;
               </p>
               <span className="block text-xs font-mono text-[#FF3B47] uppercase tracking-wider">
@@ -72,17 +72,17 @@ export function AboutSection() {
             </div>
 
             {/* Ficha técnica operativa */}
-            <div className="p-6 bg-[#0E0B0A] border border-[#241B1A] rounded-sm grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
+            <div className="p-6 bg-[var(--bg-surface-card-inner)] border border-[var(--border-subtle)] rounded-sm grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
               <div>
-                <span className="text-xs font-mono text-[#68615D] uppercase tracking-wider block mb-1">
+                <span className="text-xs font-mono text-[var(--text-subtle)] uppercase tracking-wider block mb-1">
                   Ubicación &amp; Zona
                 </span>
-                <span className="text-[#F2EDE9] font-medium">
+                <span className="text-[var(--text-primary)] font-medium">
                   Cúcuta, Norte de Santander, Colombia (GMT-5)
                 </span>
               </div>
               <div>
-                <span className="text-xs font-mono text-[#68615D] uppercase tracking-wider block mb-1">
+                <span className="text-xs font-mono text-[var(--text-subtle)] uppercase tracking-wider block mb-1">
                   Metodología Núcleo
                 </span>
                 <span className="text-[#FF3B47] font-medium font-mono">
@@ -94,7 +94,7 @@ export function AboutSection() {
 
           {/* Derecha: Placeholder de Retrato Personal 4:5 con estética de estudio */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="relative w-full h-full min-h-[440px] aspect-[4/5] rounded-sm overflow-hidden bg-[#14100F] rim-border p-6 sm:p-8 flex flex-col justify-between group/portrait">
+            <div className="relative w-full h-full min-h-[440px] aspect-[4/5] rounded-sm overflow-hidden bg-[var(--bg-surface-card)] rim-border p-6 sm:p-8 flex flex-col justify-between group/portrait">
               {/* Corner focus brackets (guías de encuadre de estudio) */}
               <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#FF3B47]/60" />
               <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#FF3B47]/60" />
@@ -103,7 +103,7 @@ export function AboutSection() {
 
               {/* Header inside portrait card */}
               <div className="flex items-center justify-between z-10">
-                <span className="text-[11px] font-mono text-[#9C9490] tracking-widest uppercase">
+                <span className="text-[11px] font-mono text-[var(--text-muted)] tracking-widest uppercase">
                   ENCUADRE DE ESTUDIO // 4:5
                 </span>
                 <div className="w-2 h-2 rounded-full bg-[#FF3B47] animate-ping" />
@@ -111,24 +111,24 @@ export function AboutSection() {
 
               {/* Center graphic schematic representation */}
               <div className="my-auto flex flex-col items-center justify-center text-center space-y-4 py-8 z-10">
-                <div className="w-24 h-24 rounded-full bg-[#1F1716] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_30px_rgba(200,30,58,0.25)]">
+                <div className="w-24 h-24 rounded-full bg-[var(--bg-surface-card-inner)] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_30px_rgba(200,30,58,0.25)]">
                   <Camera size={36} />
                 </div>
                 <div className="space-y-1.5 max-w-xs">
-                  <h4 className="text-base font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+                  <h4 className="text-base font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
                     Retrato Profesional David
                   </h4>
-                  <p className="text-xs text-[#9C9490] leading-relaxed">
+                  <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                     Espacio reservado para fotografía de retrato con iluminación direccional roja en estudio oscuro.
                   </p>
                 </div>
-                <span className="text-[10px] font-mono text-[#68615D] border border-[#241D1C] px-2.5 py-1 bg-[#0A0808]">
+                <span className="text-[10px] font-mono text-[var(--text-subtle)] border border-[var(--border-subtle)] px-2.5 py-1 bg-[var(--bg-base)]">
                   Asset: /images/david-portrait.jpg (Ratio 4:5)
                 </span>
               </div>
 
               {/* Footer inside portrait card */}
-              <div className="pt-4 border-t border-[#221817] flex items-center justify-between text-xs font-mono text-[#9C9490] z-10">
+              <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-muted)] z-10">
                 <span>LUZ DIRECCIONAL: ROJO #C81E3A</span>
                 <span className="text-[#FF3B47]">ACTIVO</span>
               </div>
@@ -141,16 +141,16 @@ export function AboutSection() {
 
         {/* Momento 2: Progresión Técnica (3 Bloques de Evolución en Grid) */}
         <div className="space-y-8 pt-6">
-          <div className="border-b border-[#241B1A] pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div className="border-b border-[var(--border-subtle)] pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
               <span className="text-xs font-mono text-[#FF3B47] uppercase tracking-wider block">
                 Trayectoria de Convergencia
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+              <h3 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
                 De la intuición a la ingeniería determinista
               </h3>
             </div>
-            <span className="text-xs font-mono text-[#9C9490]">
+            <span className="text-xs font-mono text-[var(--text-muted)]">
               3 fases de madurez técnica
             </span>
           </div>
@@ -162,7 +162,7 @@ export function AboutSection() {
               return (
                 <div
                   key={item.step}
-                  className="p-7 sm:p-8 rim-border rounded-sm bg-[#120E0D] flex flex-col justify-between space-y-6 hover:border-[#FF3B47]/40 transition-colors"
+                  className="p-7 sm:p-8 rim-border rounded-sm bg-[var(--bg-surface-card)] flex flex-col justify-between space-y-6 hover:border-[#FF3B47]/40 transition-colors"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -173,19 +173,19 @@ export function AboutSection() {
                     </div>
 
                     <div>
-                      <span className="text-xs font-mono text-[#9C9490] uppercase tracking-wider block">
+                      <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider block">
                         {item.domain}
                       </span>
-                      <h4 className="text-xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9] mt-1">
+                      <h4 className="text-xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)] mt-1">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-sm text-[#9C9490] leading-relaxed">
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">
                       {item.summary}
                     </p>
 
-                    <ul className="space-y-2 pt-2 border-t border-[#1F1716] text-xs text-[#F2EDE9]">
+                    <ul className="space-y-2 pt-2 border-t border-[var(--border-subtle)] text-xs text-[var(--text-primary)]">
                       {item.highlights.map((point, pIdx) => (
                         <li key={pIdx} className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 bg-[#FF3B47] rounded-none mt-1.5 shrink-0" />
@@ -195,8 +195,8 @@ export function AboutSection() {
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-t border-[#1C1615] flex items-center justify-between text-xs font-mono">
-                    <span className="text-[#68615D]">Parámetro clave:</span>
+                  <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono">
+                    <span className="text-[var(--text-subtle)]">Parámetro clave:</span>
                     <span className="text-[#FF3B47] font-semibold">{item.metric}</span>
                   </div>
                 </div>
@@ -207,20 +207,20 @@ export function AboutSection() {
 
         {/* Momento 3: Principios Rectores de Ingeniería */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-          <div className="p-7 sm:p-8 bg-[#120E0D] border-l-4 border-[#C81E3A] rim-border rounded-sm space-y-2">
-            <h4 className="text-lg font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+          <div className="p-7 sm:p-8 bg-[var(--bg-surface-card)] border-l-4 border-[#C81E3A] rim-border rounded-sm space-y-2">
+            <h4 className="text-lg font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
               Sin sobreingeniería
             </h4>
-            <p className="text-sm text-[#9C9490] leading-relaxed">
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
               La arquitectura más limpia, medible y verificable es siempre la más robusta en producción. Si una regla no puede expresarse con precisión matemática o lógica, no pertenece al código.
             </p>
           </div>
 
-          <div className="p-7 sm:p-8 bg-[#120E0D] border-l-4 border-[#FF3B47] rim-border rounded-sm space-y-2">
-            <h4 className="text-lg font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+          <div className="p-7 sm:p-8 bg-[var(--bg-surface-card)] border-l-4 border-[#FF3B47] rim-border rounded-sm space-y-2">
+            <h4 className="text-lg font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
               Aceleración con criterio humano
             </h4>
-            <p className="text-sm text-[#9C9490] leading-relaxed">
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
               Integro agentes y modelos de IA para acelerar el scaffolding y la exploración de patrones, pero el diseño de arquitectura, el control de riesgos y la auditoría final son 100% humanos.
             </p>
           </div>

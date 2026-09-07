@@ -161,19 +161,19 @@ export function ProjectsSection() {
             return (
               <article
                 key={project.id}
-                className="rim-border rounded-sm bg-[#120E0D] p-8 sm:p-11 lg:p-14 transition-all duration-300 hover:border-[#FF3B47]/45 relative overflow-hidden space-y-10"
+                className="rim-border rounded-sm bg-[var(--bg-surface-card)] p-8 sm:p-11 lg:p-14 transition-all duration-300 hover:border-[#FF3B47]/45 relative overflow-hidden space-y-10"
               >
                 {/* Cabecera del Expediente */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-8 border-b border-[#221817]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-8 border-b border-[var(--border-subtle)]">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-sm bg-[#1A1413] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_15px_rgba(200,30,58,0.2)]">
+                    <div className="w-14 h-14 rounded-sm bg-[var(--bg-surface-card-inner)] border border-[#C81E3A]/40 flex items-center justify-center text-[#FF3B47] shadow-[0_0_15px_rgba(200,30,58,0.2)]">
                       <ProjectIcon size={26} />
                     </div>
                     <div>
-                      <span className="text-xs font-mono text-[#9C9490] uppercase tracking-wider block">
+                      <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider block">
                         Expediente #{index + 1}
                       </span>
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-[family-name:var(--font-space-grotesk)] text-[#F2EDE9]">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)]">
                         {project.name}
                       </h3>
                     </div>
@@ -195,7 +195,7 @@ export function ProjectsSection() {
                   activeTabId={activeTab}
                   onTabChange={(tabId) => handleTabChange(project.id, tabId)}
                   actions={
-                    <span className="text-[11px] font-mono text-[#FF3B47] bg-[#C81E3A]/20 px-2.5 py-0.5 border border-[#FF3B47]/30">
+                    <span className="text-[11px] font-mono text-[#FF3B47] bg-[#C81E3A]/15 px-2.5 py-0.5 border border-[#FF3B47]/30">
                       {activeTab === "code" ? "CÓDIGO REAL // REGLAS" : "INSTRUMENTACIÓN 16:9"}
                     </span>
                   }
@@ -208,7 +208,7 @@ export function ProjectsSection() {
                     />
                   ) : (
                     /* 16:9 Image/Mockup View */
-                    <div className="relative w-full aspect-video bg-[#0A0808] overflow-hidden group/preview">
+                    <div className="relative w-full aspect-video bg-[var(--bg-surface-card-inner)] overflow-hidden group/preview">
                       {project.images && project.images.length > 0 ? (
                         <Image
                           src={project.images[0]}
@@ -219,7 +219,7 @@ export function ProjectsSection() {
                           priority={index === 0}
                         />
                       ) : (
-                        <div className="w-full h-full flex flex-col items-center justify-center bg-[#14100F] text-[#9C9490] p-6 text-center">
+                        <div className="w-full h-full flex flex-col items-center justify-center bg-[var(--bg-surface-card-inner)] text-[var(--text-muted)] p-6 text-center">
                           <span className="font-mono text-xs text-[#FF3B47] uppercase tracking-wider mb-2">
                             Telemetría visual
                           </span>
@@ -228,7 +228,7 @@ export function ProjectsSection() {
                       )}
 
                       {/* Corner Badge */}
-                      <div className="absolute bottom-4 right-4 px-3.5 py-1.5 bg-[#0A0808]/90 backdrop-blur-md border border-[#C81E3A]/40 text-xs font-mono text-[#F2EDE9] flex items-center gap-2.5 pointer-events-none z-10">
+                      <div className="absolute bottom-4 right-4 px-3.5 py-1.5 bg-[var(--bg-surface-card-inner)]/90 backdrop-blur-md border border-[#C81E3A]/40 text-xs font-mono text-[var(--text-primary)] flex items-center gap-2.5 pointer-events-none z-10">
                         <span className="w-1.5 h-1.5 bg-[#FF3B47] rounded-none animate-pulse" />
                         <span>ENTORNO AUDITABLE</span>
                       </div>
@@ -237,40 +237,40 @@ export function ProjectsSection() {
                 </WindowChrome>
 
                 {/* Resumen con presencia tipográfica */}
-                <div className="py-2 border-b border-[#221817]">
-                  <p className="text-lg sm:text-xl text-[#F2EDE9] leading-relaxed font-normal">
+                <div className="py-2 border-b border-[var(--border-subtle)]">
+                  <p className="text-lg sm:text-xl text-[var(--text-primary)] leading-relaxed font-normal">
                     {project.shortDescription}
                   </p>
                 </div>
 
                 {/* Problem vs Solution Grid con aire */}
-                <div className="py-4 border-b border-[#221817] grid grid-cols-1 lg:grid-cols-2 gap-10 text-base">
+                <div className="py-4 border-b border-[var(--border-subtle)] grid grid-cols-1 lg:grid-cols-2 gap-10 text-base">
                   <div className="space-y-3">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#FF3B47] font-[family-name:var(--font-space-grotesk)]">
                       Desafío técnico
                     </h4>
-                    <p className="text-[#9C9490] leading-relaxed">
+                    <p className="text-[var(--text-muted)] leading-relaxed">
                       {project.problem}
                     </p>
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]">
                       Solución e implementación
                     </h4>
-                    <p className="text-[#9C9490] leading-relaxed">
+                    <p className="text-[var(--text-muted)] leading-relaxed">
                       {project.solution}
                     </p>
                   </div>
                 </div>
 
                 {/* Architecture Highlights & Metrics */}
-                <div className="py-4 border-b border-[#221817] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="py-4 border-b border-[var(--border-subtle)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-8 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#9C9490] font-[family-name:var(--font-space-grotesk)]">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] font-[family-name:var(--font-space-grotesk)]">
                       Detalles de arquitectura
                     </h4>
-                    <ul className="space-y-3 text-sm sm:text-base text-[#F2EDE9]">
+                    <ul className="space-y-3 text-sm sm:text-base text-[var(--text-primary)]">
                       {project.architectureNotes.map((note, nIdx) => (
                         <li key={nIdx} className="flex items-start gap-3">
                           <span className="w-1.5 h-1.5 bg-[#C81E3A] rounded-none mt-2 shrink-0" />
@@ -280,15 +280,15 @@ export function ProjectsSection() {
                     </ul>
                   </div>
 
-                  <div className="lg:col-span-4 bg-[#0A0808] p-6 border border-[#221817] rounded-sm space-y-4">
+                  <div className="lg:col-span-4 bg-[var(--bg-surface-card-inner)] p-6 border border-[var(--border-subtle)] rounded-sm space-y-4">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#FF3B47] font-[family-name:var(--font-space-grotesk)]">
                       Parámetros clave
                     </h4>
                     <dl className="space-y-3 text-xs sm:text-sm">
                       {project.metrics.map((m, mIdx) => (
-                        <div key={mIdx} className="flex justify-between items-center py-1.5 border-b border-[#1A1413] last:border-none">
-                          <dt className="text-[#9C9490]">{m.label}</dt>
-                          <dd className="text-[#F2EDE9] font-mono font-medium">{m.value}</dd>
+                        <div key={mIdx} className="flex justify-between items-center py-1.5 border-b border-[var(--border-subtle)] last:border-none">
+                          <dt className="text-[var(--text-muted)]">{m.label}</dt>
+                          <dd className="text-[var(--text-primary)] font-mono font-medium">{m.value}</dd>
                         </div>
                       ))}
                     </dl>
@@ -297,13 +297,13 @@ export function ProjectsSection() {
 
                 {/* Technical Stack Pills */}
                 <div className="pt-2 flex flex-wrap items-center gap-2.5">
-                  <span className="text-xs text-[#68615D] font-mono mr-2">
+                  <span className="text-xs text-[var(--text-subtle)] font-mono mr-2">
                     Stack:
                   </span>
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-mono px-3 py-1 bg-[#1A1614] text-[#F2EDE9] border border-[#C81E3A]/30 rounded-none"
+                      className="text-xs font-mono px-3 py-1 bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)] border border-[#C81E3A]/30 rounded-none"
                     >
                       {tech}
                     </span>

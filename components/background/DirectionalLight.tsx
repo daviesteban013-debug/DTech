@@ -74,7 +74,8 @@ export function DirectionalLight() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none"
+      style={{ opacity: "var(--directional-light-opacity)" }}
+      className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none transition-opacity duration-300"
     >
       {isDesktopWithMouse ? (
         // Desktop: Damped parallax reacting strictly to mouse position, static to scroll

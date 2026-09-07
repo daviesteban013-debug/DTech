@@ -78,27 +78,27 @@ export function ContactSection() {
             description="Ya sea una aplicación web completa, la automatización de una estrategia cuantitativa en Pine Script/MQL5 o una consulta de arquitectura técnica, conversemos directamente sobre los requerimientos."
           />
 
-          <div className="p-7 rim-border rounded-sm bg-[#120E0D] space-y-5 text-sm">
+          <div className="p-7 rim-border rounded-sm bg-[var(--bg-surface-card)] space-y-5 text-sm">
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
+              <span className="text-[var(--text-subtle)] uppercase tracking-wider block font-mono text-xs mb-1">
                 Ubicación
               </span>
-              <span className="text-[#F2EDE9] font-medium text-base">
+              <span className="text-[var(--text-primary)] font-medium text-base">
                 Cúcuta, Norte de Santander, Colombia (GMT-5)
               </span>
             </div>
 
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
+              <span className="text-[var(--text-subtle)] uppercase tracking-wider block font-mono text-xs mb-1">
                 Tiempo de respuesta
               </span>
-              <span className="text-[#F2EDE9] font-medium text-base">
+              <span className="text-[var(--text-primary)] font-medium text-base">
                 Normalmente respondo en menos de 24 horas hábiles
               </span>
             </div>
 
             <div>
-              <span className="text-[#68615D] uppercase tracking-wider block font-mono text-xs mb-1">
+              <span className="text-[var(--text-subtle)] uppercase tracking-wider block font-mono text-xs mb-1">
                 Disponibilidad
               </span>
               <span className="text-[#FF3B47] font-medium text-base">
@@ -109,7 +109,7 @@ export function ContactSection() {
         </div>
 
         {/* Right Column: Accessible Form */}
-        <div className="lg:col-span-7 rim-border rounded-sm bg-[#120E0D] p-6 sm:p-9">
+        <div className="lg:col-span-7 rim-border rounded-sm bg-[var(--bg-surface-card)] p-6 sm:p-9">
           {submissionStatus === "success" && (
             <div
               role="alert"
@@ -117,10 +117,10 @@ export function ContactSection() {
             >
               <CheckCircle2 size={20} className="text-[#FF3B47] shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-sm font-semibold text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]">
+                <h3 className="text-sm font-semibold text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]">
                   Mensaje recibido con éxito
                 </h3>
-                <p className="text-xs text-[#9C9490] mt-1">
+                <p className="text-xs text-[var(--text-muted)] mt-1">
                   Gracias por escribir. Revisaré los detalles técnicos de tu solicitud y me pondré en contacto contigo pronto.
                 </p>
                 <button
@@ -156,7 +156,7 @@ export function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="block text-xs font-medium uppercase tracking-wider text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]"
+                className="block text-xs font-medium uppercase tracking-wider text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]"
               >
                 Nombre completo
               </label>
@@ -167,10 +167,10 @@ export function ContactSection() {
                 placeholder="Ej. Carlos Mendoza"
                 aria-invalid={errors.name ? "true" : "false"}
                 aria-describedby={errors.name ? "name-error" : undefined}
-                className={`w-full px-4 py-3 bg-[#0A0808] text-[#F2EDE9] text-sm border rounded-none focus-visible:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)] text-sm border rounded-none focus-visible:outline-none transition-colors ${
                   errors.name
                     ? "border-[#FF3B47] focus-visible:ring-1 focus-visible:ring-[#FF3B47]"
-                    : "border-[#2A2220] focus-visible:border-[#FF3B47]"
+                    : "border-[var(--border-subtle)] focus-visible:border-[#FF3B47]"
                 }`}
                 {...register("name")}
               />
@@ -185,7 +185,7 @@ export function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="block text-xs font-medium uppercase tracking-wider text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]"
+                className="block text-xs font-medium uppercase tracking-wider text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]"
               >
                 Correo electrónico
               </label>
@@ -196,10 +196,10 @@ export function ContactSection() {
                 placeholder="carlos@ejemplo.com"
                 aria-invalid={errors.email ? "true" : "false"}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className={`w-full px-4 py-3 bg-[#0A0808] text-[#F2EDE9] text-sm border rounded-none focus-visible:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)] text-sm border rounded-none focus-visible:outline-none transition-colors ${
                   errors.email
                     ? "border-[#FF3B47] focus-visible:ring-1 focus-visible:ring-[#FF3B47]"
-                    : "border-[#2A2220] focus-visible:border-[#FF3B47]"
+                    : "border-[var(--border-subtle)] focus-visible:border-[#FF3B47]"
                 }`}
                 {...register("email")}
               />
@@ -214,7 +214,7 @@ export function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="projectType"
-                className="block text-xs font-medium uppercase tracking-wider text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]"
+                className="block text-xs font-medium uppercase tracking-wider text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]"
               >
                 Tipo de proyecto
               </label>
@@ -224,15 +224,15 @@ export function ContactSection() {
                 aria-describedby={
                   errors.projectType ? "projectType-error" : undefined
                 }
-                className={`w-full px-4 py-3 bg-[#0A0808] text-[#F2EDE9] text-sm border rounded-none focus-visible:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)] text-sm border rounded-none focus-visible:outline-none transition-colors ${
                   errors.projectType
                     ? "border-[#FF3B47] focus-visible:ring-1 focus-visible:ring-[#FF3B47]"
-                    : "border-[#2A2220] focus-visible:border-[#FF3B47]"
+                    : "border-[var(--border-subtle)] focus-visible:border-[#FF3B47]"
                 }`}
                 {...register("projectType")}
               >
                 {projectTypes.map((type) => (
-                  <option key={type} value={type} className="bg-[#14100F] text-[#F2EDE9]">
+                  <option key={type} value={type} className="bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)]">
                     {type}
                   </option>
                 ))}
@@ -248,7 +248,7 @@ export function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="message"
-                className="block text-xs font-medium uppercase tracking-wider text-[#F2EDE9] font-[family-name:var(--font-space-grotesk)]"
+                className="block text-xs font-medium uppercase tracking-wider text-[var(--text-primary)] font-[family-name:var(--font-space-grotesk)]"
               >
                 Mensaje
               </label>
@@ -258,10 +258,10 @@ export function ContactSection() {
                 placeholder="Describe tu proyecto, el objetivo técnico, los plazos estimados o las preguntas específicas que tengas..."
                 aria-invalid={errors.message ? "true" : "false"}
                 aria-describedby={errors.message ? "message-error" : undefined}
-                className={`w-full px-4 py-3 bg-[#0A0808] text-[#F2EDE9] text-sm border rounded-none focus-visible:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-[var(--bg-surface-card-inner)] text-[var(--text-primary)] text-sm border rounded-none focus-visible:outline-none transition-colors ${
                   errors.message
                     ? "border-[#FF3B47] focus-visible:ring-1 focus-visible:ring-[#FF3B47]"
-                    : "border-[#2A2220] focus-visible:border-[#FF3B47]"
+                    : "border-[var(--border-subtle)] focus-visible:border-[#FF3B47]"
                 }`}
                 {...register("message")}
               />
