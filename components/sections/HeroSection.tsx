@@ -43,7 +43,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-[family-name:var(--font-space-grotesk)] text-[var(--text-primary)] tracking-tight leading-[1.04] max-w-5xl"
         >
-          David — construyo sistemas que funcionan:{" "}
+          DTech construye sistemas que funcionan:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] via-[#FF3B47] to-[#C81E3A] drop-shadow-[0_0_35px_rgba(200,30,58,0.25)]">
             web, trading algorítmico, software
           </span>
